@@ -1,25 +1,27 @@
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Character
+namespace clasePlayer
 {
-    
-   public string name;
-   private int healthPoints = 10;
-   public Character(string name)
-       {
-           this.name = name;
+    public class character
+    {
 
-       }
+        public string name;
+        private int kills;
+        private int healthPoints;
 
-       ~Character()
-       {
-           Debug.Log("Destroyed");
-       }
+        public character(string name)
+        {
+            this.name = name;
+            healthPoints = 10;
+            Debug.Log("Hola, soy" + name);
+        }
 
-   public int getHealthPoints()
-   {
-       return healthPoints;
-   }
+     
+        public int getKills()
+        {
+            return kills;
+        }
+    }
 }
