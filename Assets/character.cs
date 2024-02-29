@@ -1,27 +1,29 @@
-﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace clasePlayer
+
+public abstract class Character
 {
-    public class character
+    public string name;
+    private int healthPoints  = 100;
+    //int vida { get; set; }
+    //bool alive { get; set; }
+
+    public Character(string s)
     {
-
-        public string name;
-        private int kills;
-        private int healthPoints;
-
-        public character(string name)
-        {
-            this.name = name;
-            healthPoints = 10;
-            Debug.Log("Hola, soy" + name);
-        }
-
-     
-        public int getKills()
-        {
-            return kills;
-        }
+        name = s;
+        Debug.Log(name);
     }
+
+    ~Character()
+    {
+        Debug.Log(name + " ha muerto");
+    }
+
+    public virtual void TakeDamage()
+    {
+        healthPoints--;
+    }
+
+    public int HealthPoints { get => healthPoints; set => healthPoints = value; }
 }
