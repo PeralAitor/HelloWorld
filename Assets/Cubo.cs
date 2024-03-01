@@ -6,11 +6,13 @@ public class Cubo : MonoBehaviour
 {
 
     private Transform trans;
+    private GameObject gm;
 
     // Start is called before the first frame update
     void Start()
     {
-        trans = this.GetComponent <Transform>();
+        gm = GameObject.Find("Cubo");
+        trans = gm.GetComponent<Transform>();
     }
 
     // Update is called once per frame

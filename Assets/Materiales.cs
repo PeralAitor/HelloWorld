@@ -4,28 +4,31 @@ using UnityEngine;
 
 public class Materiales : MonoBehaviour
 {
-
-    private GameObject[] gm;
-    private Renderer render1,render2,render3;
+    private GameObject gm;
+    private GameObject[] lGm;
+    private bool check;
+    private string tags;
+    private Color colorDeseado;
 
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.FindGameObjectsWithTag("PrimerTag");
-        
-        render1 = gm[0].GetComponent<Renderer>();
-        render1.material.color = Color.red;
-
-        render2 = gm[1].GetComponent<Renderer>();
-        render2.material.color = Color.blue;
-
-        render3 = gm[2].GetComponent<Renderer>();
-        render3.material.color = Color.green;
+        lGm = GameObject.FindGameObjectsWithTag(tags);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
+        if (check == true)
+        {
+
+            for (int i = 0; i < lGm.Length; i++)
+            {
+                lGm[i].GetComponent<Renderer>().material.color = colorDeseado;
+            }
+        }
     }
+         
+
 }
